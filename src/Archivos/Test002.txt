@@ -1,7 +1,5 @@
-public function datos()
-{
-  foreach ( $ this -> datos as key = > $ valor)
-{
-$ this - > data [ $key ] = explode ( " \n" , $ this -> datos [$key]) ;
-}
+public class HolaMundo - public static void main(String[] args) {		
+            System.out.println("Hola Mundo");
+    }
+
 }

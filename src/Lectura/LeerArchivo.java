@@ -26,7 +26,7 @@ public class LeerArchivo extends javax.swing.JFrame {
             try{
                 BufferedReader bf = new BufferedReader(new FileReader(archivo));
                 while ((bfRead = bf.readLine()) != null)
-                    cadena += bfRead ;
+                    cadena += bfRead + ' ';
             } catch (HeadlessException | IOException ex) {
                 System.out.println(ex.getMessage());
             }

@@ -1,3 +1,5 @@
+{ { }
+} kj
 boolean acci0n = uno ;
 use 1rchivo = dos ;
 123

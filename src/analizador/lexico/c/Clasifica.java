@@ -14,6 +14,7 @@ public class Clasifica {
 
     public void q0(String archivo, int actual) {
         //for (int i = actual; i < archivo.length(); i++) {
+        if(actual<archivo.length()){
         conv.convertirCaracter(archivo.charAt(actual));
         if (tipo.esCero(conv.getAscii()) == true) {
             actual++;
@@ -27,10 +28,14 @@ public class Clasifica {
         } else if (tipo.esCaracter(conv.getAscii()) == true) {
             actual++;
             q7Caracter(archivo);
-        } else {
+        } else if(tipo.esEspacio(conv.getAscii()) == true){
+            actual++;
+            q0(archivo, actual);
+        }else {
+            System.out.println("q2 desde q0");
             actual++;
             q2ErrorLexico(archivo, actual);
-        }
+        }}
         //}
     }
 

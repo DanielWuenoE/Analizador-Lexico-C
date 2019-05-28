@@ -26,7 +26,7 @@ public class Pila {
         push(nuevo);
     }
     
-    public void push(Nodo dato) {
+    private void push(Nodo dato) {
         if (inicio != null) {
             dato.sig = inicio;
             inicio = dato;
@@ -48,6 +48,10 @@ public class Pila {
             return  inicio.dato;
         } else
             return null;
+    }
+    
+    public boolean isEmpty() {
+        return inicio != null;
     }
     
     public void imprime() {

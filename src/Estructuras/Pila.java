@@ -43,6 +43,13 @@ public class Pila {
             System.out.println("Pila vacia");
     }
     
+    public String peak() {
+        if (inicio != null) {
+            return  inicio.dato;
+        } else
+            return null;
+    }
+    
     public void imprime() {
         Nodo temp = inicio;
         while (temp != null) {
@@ -59,6 +66,7 @@ class test {
         p.push("2");
         p.push("3");
         p.push("4");
+        System.out.println(":" + p.peak());
         p.pop();
         p.imprime();
     }

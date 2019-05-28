@@ -1,6 +1,10 @@
 package Sintactico;
 
+import Estructuras.Pila;
+
 public class MatrizPredictiva {
+    
+    Pila pila = new Pila();
     
     public int matriz(int x, int y) {
         int[][] matrizPredictiva = {{1, 1, 1,  1,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0},
@@ -44,6 +48,6 @@ public class MatrizPredictiva {
 class test {
     public static void main(String[] args) {
         MatrizPredictiva m = new MatrizPredictiva();
-        m.obtenProduccionMatrizP();
+        m.obtenProduccionMatrizP(0, 7);
     }
 }

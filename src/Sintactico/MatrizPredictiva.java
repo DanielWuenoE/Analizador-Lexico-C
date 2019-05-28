@@ -15,9 +15,29 @@ public class MatrizPredictiva {
         return matrizPredictiva[x][y];
     }
     
-    public void obtenProduccionMatrizP() {
-        int produccion = matriz(6, 5);
+    public void obtenProduccionMatrizP(int x, int y) {
+        int produccion = matriz(x, y);
         System.out.println(":" + produccion);
+    }
+    
+    public void LlDiver() {
+        while() {
+            if (noEsterminal(x)) {
+                if(obtenProduccionMatrizP(x, a) != 0) {
+                    remplazar x con la producción(obtenProduccionMatrizP(x, a));
+                    pop() y un siclo push();
+                } else {
+                    errorSintaxis(x);
+                }
+            } else {
+                if(x == a) {
+                    pop();
+                    a = lectura();
+                } else {
+                    errorSintaxis(x);
+                }
+            }
+        }
     }
 }
 

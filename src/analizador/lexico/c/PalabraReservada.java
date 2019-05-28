@@ -73,11 +73,11 @@ public class PalabraReservada {
     }
 }
 
-//class test {
-//    public static void main(String[] args) {
-//        PalabraReservada pr = new PalabraReservada();
-//        System.out.println("Existe: " + pr.ExistePalabraReservada("boolean"));
-//        System.out.println("Palabra: " + pr.getValorPalabraReservada("boolean"));
-//        
-//    }
-//}
+class test {
+    public static void main(String[] args) {
+        PalabraReservada pr = new PalabraReservada();
+        System.out.println("Existe: " + pr.ExistePalabraReservada("boolean"));
+        System.out.println("Palabra: " + pr.getValorPalabraReservada("boolean"));
+        
+    }
+}

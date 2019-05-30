@@ -40,7 +40,7 @@ public class AcomodoGramatica {
         ladosDerechos = new String[nes.cantidadDeCadenas()];
         simbolosNoTerminales = new String[nes.cantidadDeCadenas()];
         simbolosTerminales = new String[nes.cantidadDeCadenas()];
-        temp = new String[2];
+        temp = new String[3];
     }
     
     private void todasLasProducciones() {
@@ -93,18 +93,20 @@ public class AcomodoGramatica {
     
     public int indiceNoTerminal(String buscar) {
         for (int i = 0; i < simbolosNoTerminales.length; i++) {
-            if (simbolosNoTerminales[i].equals(buscar)){
-                System.out.println("encontrado");
-                return i;
-            }
+            if (simbolosNoTerminales[i] != null)
+                if (simbolosNoTerminales[i].equals(buscar)){
+                    System.out.println("encontrado");
+                    return i;
+                }
         }
         return 0;
     }
     
     public int indiceTerminal(String buscar) {
         for (int i = 0; i < simbolosTerminales.length; i++) {
-            if (simbolosTerminales[i].equals(buscar))
-                return i;
+            if (simbolosTerminales[i] != null)
+                if (simbolosTerminales[i].equals(buscar))
+                    return i;
         }
         return 0;
     }

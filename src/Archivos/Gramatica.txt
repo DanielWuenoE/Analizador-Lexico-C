@@ -27,3 +27,5 @@ verbo      > corre
 verbo      > ladra
 verbo      > maulla
 verbo      > esta
+
+el perro azul ladra $

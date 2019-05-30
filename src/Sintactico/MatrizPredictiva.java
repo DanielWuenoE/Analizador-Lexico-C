@@ -2,14 +2,18 @@ package Sintactico;
 
 import Estructuras.Pila;
 import Gramatica.AcomodoGramatica;
+import analizador.lexico.c.ClasificaSintactico;
 
 public class MatrizPredictiva {
     
-    Pila pila = new Pila();
+    Pila pila;
     AcomodoGramatica gramatica;
+    ClasificaSintactico lexico;
     
     MatrizPredictiva() {
+        pila = new Pila();
         gramatica = new AcomodoGramatica();
+        lexico = new ClasificaSintactico();
         gramatica.ini();
     }
     
@@ -44,11 +48,12 @@ public class MatrizPredictiva {
     public void LlDiver() { //a sera el lexema enviado del analizador lexico
         pila.push(gramatica.simboloInicial());
         String x = pila.peak(); // tope de la pila
-        String a = " "; // pedir la primer palabra
-        while(!pila.isEmpty()) {
+        String a = lexico.pedirToken(); // pedir la primer palabra
+        while(pila.isEmpty()) {
             if (noEsTerminal(x)) {
                 if(obtenProduccionMatrizP(x, a) != 0) {
                     //remplazar x con la producción(obtenProduccionMatrizP(x, a));
+                    System.out.println(":****:");
                     pila.pop(); //y un siclo push();
                     cicloPush(obtenProduccionMatrizP(x, a)); // derecha a izquierda
                 } else {
@@ -58,6 +63,7 @@ public class MatrizPredictiva {
                 if(x.equals(a)) {
                     pila.pop();
                     //a = lectura(); //siguiente lexema ? : fin, en espera del analizador lexico ?
+                    a = lexico.pedirToken();
                 } else {
                     errorSintactico(x);
                 }
@@ -67,8 +73,11 @@ public class MatrizPredictiva {
     
     private void cicloPush(int produccion) {
         String[] deriva = gramatica.produccionDerecha(produccion);    // la produccion a ingresar
-        for (String derivacion : deriva) {
-            pila.push(derivacion);
+        //for (String derivacion : deriva) {
+        for (int i = deriva.length; i == 0; i--) {
+            System.out.println("-." + i);
+            pila.push(deriva[i]);
+            System.out.println(deriva[i] + "--");
         }
     }
     
@@ -80,6 +89,7 @@ public class MatrizPredictiva {
 class test {
     public static void main(String[] args) {
         MatrizPredictiva m = new MatrizPredictiva();
+        m.LlDiver();
         //m.obtenProduccionMatrizP(0, 7);
     }
 }

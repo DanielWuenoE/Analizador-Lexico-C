@@ -1,16 +1,11 @@
 package analizador.lexico.c;
 
-import Estructuras.Listas;
-import Lectura.LeerArchivo;
-
 public class ClasificaSintactico {
 
     private String caso;
     Tipos tipo = new Tipos();
     ConversionCaracter conv = new ConversionCaracter();
-    Listas list = new Listas();
-    PalabraReservada pr = new PalabraReservada();
-    String archivo = "esta eS    una prueba a ", token;
+    String archivo = "esta eS una  prueba   a ", token;
     int actual = 0;
 
     public String pedirToken() {

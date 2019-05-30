@@ -32,7 +32,9 @@ public class MatrizPredictiva {
     
     public int obtenProduccionMatrizP(String x, String a) {
         int posX = gramatica.indiceNoTerminal(x); // 0
+        System.out.println("posX"+posX);
         int posY = gramatica.indiceTerminal(a);  // 0
+        System.out.println("posY"+posY);
         return matriz(posX, posY);
     }
     
@@ -47,25 +49,40 @@ public class MatrizPredictiva {
     
     public void LlDiver() { //a sera el lexema enviado del analizador lexico
         pila.push(gramatica.simboloInicial());
+        System.out.println("Imprime pila inicial");
+        pila.imprime();
         String x = pila.peak(); // tope de la pila
         String a = lexico.pedirToken(); // pedir la primer palabra
         while(pila.isEmpty()) {
             if (noEsTerminal(x)) {
+                System.out.println(x);
+                System.out.println(a);
                 if(obtenProduccionMatrizP(x, a) != 0) {
+                    System.out.println(obtenProduccionMatrizP(x, a));
                     //remplazar x con la producción(obtenProduccionMatrizP(x, a));
-                    System.out.println(a + ":a****x:" + x + ":***indice:" + obtenProduccionMatrizP(x, a));
+//                    System.out.println(":****:");
                     pila.pop(); //y un siclo push();
+                    System.out.println("Imprime pila pop");
+                    pila.imprime();
+//                    System.out.println(obtenProduccionMatrizP(x, a));
                     cicloPush(obtenProduccionMatrizP(x, a)); // derecha a izquierda
+                    x = pila.peak();
+                    System.out.println("x: "+x);
                 } else {
-                    errorSintactico(x);
+                    errorSintactico(a);
+                    break;
                 }
             } else {
                 if(x.equals(a)) {
+                    System.out.println("Son iguales");
                     pila.pop();
+                    System.out.println("Imprimiendo");
+                    pila.imprime();
                     //a = lectura(); //siguiente lexema ? : fin, en espera del analizador lexico ?
                     a = lexico.pedirToken();
                 } else {
-                    errorSintactico(x);
+                    errorSintactico(a);
+                    break;
                 }
             }
         }
@@ -73,10 +90,16 @@ public class MatrizPredictiva {
     
     private void cicloPush(int produccion) {
         String[] deriva = gramatica.produccionDerecha(produccion);    // la produccion a ingresar
-        for (String derivacion : deriva) {
-            System.out.println("derivame:"+ derivacion);
-            pila.push(derivacion);
+        int i = deriva.length;
+        System.out.println("tamaño: "+i);
+        //for (String derivacion : deriva) {
+        while (i != 0) {
+            pila.push(deriva[i-1]);
+            System.out.println("Imprime en ciclo");
+            pila.imprime();
+            i=i-1;
         }
+        System.out.println("ciclo\n");
     }
     
     private void errorSintactico(String x) {

@@ -5,7 +5,7 @@ public class ClasificaSintactico {
     private String caso;
     Tipos tipo = new Tipos();
     ConversionCaracter conv = new ConversionCaracter();
-    String archivo = "esta eS una  prueba   a ", token;
+    String archivo = "el perro esta eS una  prueba   a ", token;
     int actual = 0;
 
     public String pedirToken() {
@@ -15,7 +15,7 @@ public class ClasificaSintactico {
     }
 
     public void q0(String archivo) {
-        System.out.println(actual);
+//        System.out.println(actual);
         if (actual < archivo.length()) {
             conv.convertirCaracter(archivo.charAt(actual));
             if (tipo.esEspacio(conv.getAscii())) {
@@ -39,7 +39,7 @@ public class ClasificaSintactico {
             //System.out.println("Caracter actual: " + archivo.charAt(i));
             conv.convertirCaracter(archivo.charAt(i));
             if (tipo.esEspacio(conv.getAscii())) {
-                System.out.println("identificador");
+//                System.out.println("identificador");
                 token = crearCadena(actual - 1, actual + movs, archivo);
                 actual = actual + movs;
                 break;
@@ -56,7 +56,7 @@ public class ClasificaSintactico {
         for (int i = actual + movs; i < archivo.length(); i++) {
             conv.convertirCaracter(archivo.charAt(i));
             if (tipo.esEspacio(conv.getAscii()) == true) {
-                System.out.println("error");
+//                System.out.println("error");
                 movs++;
                 token = crearCadena(actual - 1, actual + movs, archivo);
                 actual = actual + movs;

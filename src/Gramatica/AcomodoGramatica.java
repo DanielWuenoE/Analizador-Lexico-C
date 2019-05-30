@@ -109,6 +109,13 @@ public class AcomodoGramatica {
         return 0;
     }
     
+    public String[] produccionDerecha(int produccion) {
+        if (todasLasProducciones[produccion][1] != null) {
+            return nes.noEsEsplit(todasLasProducciones[produccion][1], " ");
+        }
+        return null;
+    }
+    
     private void imprimeGramaticaCompleta() {
         for (String[] prod : todasLasProducciones)
             System.out.println(prod[0] + "\t-->\t" + prod[1]);

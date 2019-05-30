@@ -56,7 +56,7 @@ public class MatrizPredictiva {
             } else {
                 if(x.equals(a)) {
                     pila.pop();
-                    a = lectura(); //siguiente lexema ? : fin, en espera del analizador lexico ?
+                    //a = lectura(); //siguiente lexema ? : fin, en espera del analizador lexico ?
                 } else {
                     errorSintactico(x);
                 }
@@ -65,10 +65,10 @@ public class MatrizPredictiva {
     }
     
     private void cicloPush(int produccion) {
-        //String[] deriva = gramatica. ??
-        //for (String derivacion : deriva) {
-            //pila.push(derivacion);
-        //}
+        String[] deriva = gramatica.produccionDerecha(0);    // la produccion a ingresar
+        for (String derivacion : deriva) {
+            pila.push(derivacion);
+        }
     }
     
     private void errorSintactico(String x) {
@@ -79,6 +79,6 @@ public class MatrizPredictiva {
 class test {
     public static void main(String[] args) {
         MatrizPredictiva m = new MatrizPredictiva();
-        m.obtenProduccionMatrizP(0, 7);
+        //m.obtenProduccionMatrizP(0, 7);
     }
 }

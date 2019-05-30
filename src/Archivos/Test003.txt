@@ -1,8 +1,3 @@
-int hola = 10
-       tab = 20
-20.0
-double sout = 45.9
-boolean salt
-203
-salt = 23
-tab = 30
+el perro ladra
+la casa es azul
+azul es coche

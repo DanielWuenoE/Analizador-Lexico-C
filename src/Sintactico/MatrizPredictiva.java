@@ -49,7 +49,6 @@ public class MatrizPredictiva {
             if (noEsTerminal(x)) {
                 if(obtenProduccionMatrizP(x, a) != 0) {
                     //remplazar x con la producción(obtenProduccionMatrizP(x, a));
-                    x = //frase
                     pila.pop(); //y un siclo push();
                     cicloPush(obtenProduccionMatrizP(x, a)); // derecha a izquierda
                 } else {
@@ -109,7 +108,7 @@ public class MatrizPredictiva {
 //    }
     
     private void cicloPush(int produccion) {
-        String[] deriva = gramatica.produccionDerecha(0);    // la produccion a ingresar
+        String[] deriva = gramatica.produccionDerecha(produccion);    // la produccion a ingresar
         for (String derivacion : deriva) {
             pila.push(derivacion);
         }

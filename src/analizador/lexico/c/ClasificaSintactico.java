@@ -10,11 +10,11 @@ public class ClasificaSintactico {
     ConversionCaracter conv = new ConversionCaracter();
     Listas list = new Listas();
     PalabraReservada pr = new PalabraReservada();
-    String archivo = "esta es una prueba  ", token;
+    String archivo = "esta eS  una prueba a ", token;
     int actual = 0;
-    
-    public String pedirToken(){
-        
+
+    public String pedirToken() {
+
         q0(archivo);
         System.out.println(token);
         return token;
@@ -24,7 +24,12 @@ public class ClasificaSintactico {
         System.out.println(actual);
         if (actual < archivo.length()) {
             conv.convertirCaracter(archivo.charAt(actual));
-            if (tipo.esMinuscula(conv.getAscii()) == true) {
+            if (tipo.esEspacio(conv.getAscii())) {
+                if (actual++ < archivo.length()) {
+                    actual++;
+                    q0(archivo);
+                }
+            } else if (tipo.esMinuscula(conv.getAscii()) == true) {
                 actual++;
                 q1Identificador(archivo);
             } else {
@@ -35,22 +40,20 @@ public class ClasificaSintactico {
 
     public void q1Identificador(String archivo) {
         int movs = 1;
-        System.out.println("Actual: "+actual);
+        //System.out.println("Actual: " + actual);
         for (int i = actual; i < archivo.length(); i++) {
-            System.out.println("Caracter actual: "+archivo.charAt(i));
+            //System.out.println("Caracter actual: " + archivo.charAt(i));
             conv.convertirCaracter(archivo.charAt(i));
             if (tipo.esEspacio(conv.getAscii())) {
                 System.out.println("identificador");
                 token = crearCadena(actual - 1, actual + movs, archivo);
                 actual = actual + movs;
                 break;
+            } else if (tipo.esMinuscula(conv.getAscii()) == true) {
+                movs++;
             } else {
-                if (tipo.esMinuscula(conv.getAscii()) == true) {
-                    movs++;
-                } else {
-                    q2ErrorLexico(archivo, movs);
-                    break;
-                }
+                q2ErrorLexico(archivo, movs);
+                break;
             }
         }
     }
@@ -61,20 +64,20 @@ public class ClasificaSintactico {
             if (tipo.esEspacio(conv.getAscii()) == true) {
                 System.out.println("error");
                 movs++;
-                token = crearCadena(actual, actual + movs, archivo);
+                token = crearCadena(actual - 1, actual + movs, archivo);
                 actual = actual + movs;
                 break;
             } else {
                 movs++;
             }
         }
-         
+
     }
-    
-     public String crearCadena(int i, int f, String archivo) {
+
+    public String crearCadena(int i, int f, String archivo) {
         String cad = "";
 
-        for (int j = i; j < f-1; j++) {
+        for (int j = i; j < f - 1; j++) {
             cad = cad + archivo.charAt(j);
         }
 
@@ -92,6 +95,9 @@ public class ClasificaSintactico {
         //obj.q0(archivo2);
         //        obj.im(archivo);
         obj.pedirToken();
+        obj.pedirToken();
+        obj.pedirToken();
+
         obj.pedirToken();
         obj.pedirToken();
     }

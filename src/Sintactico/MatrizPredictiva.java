@@ -21,8 +21,8 @@ public class MatrizPredictiva {
         int[][] matrizPredictiva = {{1, 1, 1,  1,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0},
                                     {2, 2, 2,  2,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0},
                                     {3, 3, 3,  3,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0},
-                                    {0, 0, 0,  0,  0,  0,  0,  0,  0,  0,  0,  5,  5,  5,  5,  5,  5,  4,  4,  4,  4,  4,  4,  0},
-                                    {0, 0, 0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  6,  6,  6,  6,  6,  6,  6,  6},
+                                    {0, 0, 0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  4,  4,  4,  4,  4,  4,  0},
+                                    {0, 0, 0,  0,  0,  0,  0,  0,  0,  0,  0,  5,  5,  5,  5,  5,  5,  6,  6,  6,  6,  6,  6,  6},
                                     {7, 8, 9, 10,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0},
                                     {0, 0, 0,  0, 11, 12, 13, 14, 15, 16, 17,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0},
                                     {0, 0, 0,  0,  0,  0,  0,  0,  0,  0,  0, 18, 19, 20, 21, 22, 23,  0,  0,  0,  0,  0,  0,  0},
@@ -32,9 +32,9 @@ public class MatrizPredictiva {
     
     public int obtenProduccionMatrizP(String x, String a) {
         int posX = gramatica.indiceNoTerminal(x); // 0
-        System.out.println("posX"+posX);
+//        System.out.println("posX"+posX);
         int posY = gramatica.indiceTerminal(a);  // 0
-        System.out.println("posY"+posY);
+//        System.out.println("posY"+posY);
         return matriz(posX, posY);
     }
     
@@ -83,7 +83,8 @@ public class MatrizPredictiva {
                     a = lexico.pedirToken();
                     System.out.println("a: "+a);
                 } else if(x.equals("ε")) {
-                    
+                    pila.pop();
+                    x = pila.peak();
                 }else {
                     errorSintactico(a);
                     break;

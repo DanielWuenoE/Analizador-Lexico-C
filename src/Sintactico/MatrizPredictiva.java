@@ -65,48 +65,6 @@ public class MatrizPredictiva {
         }
     }
     
-//    public void llDriver() {
-//        String x = "";
-//        String a = l.generarToken();
-//        do {
-//            x = pila.top();
-//            JOptionPane.showMessageDialog(null, "a = " + a + " - x = " + x);
-//            if (!esTerminal(x)) {
-//                if (!x.equals("")) {
-//                    System.out.println(x + " es no terminal..");
-//                    if (g.getNoProd(x, a) != 0) {
-//                        System.out.println("Sale " + pila.pop() + " de la pila");
-//
-//                        ArrayList<String> elementos = g.getProduccion(x, a);
-//
-//                        for (int i = 0; i < elementos.size(); i++)
-//                            pila.push(elementos.get(elementos.size() - i - 1));
-//
-//                        x = pila.top();
-//                    } else {
-//                        System.out.println(ERROR_MATRIZ_PREDICTIVA);
-//                        pila.vaciar();
-//                    }
-//                } else {
-//                    pila.pop();
-//                    x = pila.top();
-//                }
-//            } else {
-//                if (x.equals(a)) {
-//                    System.out.println("x = a");
-//                    pila.pop();
-//                    System.out.println("PilaVacia = " + pila.estaVacia());
-//                    a = l.generarToken();
-//                    x = pila.top();
-//                }
-//            }
-//        } while (!pila.estaVacia() && !x.equals("$"));
-//
-//        System.out.println("x = " + x);
-//        System.out.println(pila.tamaño());
-//        System.out.println(pila.pop());
-//    }
-    
     private void cicloPush(int produccion) {
         String[] deriva = gramatica.produccionDerecha(produccion);    // la produccion a ingresar
         for (String derivacion : deriva) {

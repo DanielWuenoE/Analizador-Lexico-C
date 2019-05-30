@@ -28,4 +28,4 @@ verbo      > ladra
 verbo      > maulla
 verbo      > esta
 
-el perro azul ladra $
+el perro azul  ladra $

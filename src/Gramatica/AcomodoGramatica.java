@@ -111,7 +111,7 @@ public class AcomodoGramatica {
     
     public String[] produccionDerecha(int produccion) {
         if (todasLasProducciones[produccion - 1][1] != null) {
-            return nes.noEsEsplit(todasLasProducciones[produccion][1], " ");
+            return nes.noEsEsplit(todasLasProducciones[produccion - 1][1], " ");
         }
         return null;
     }

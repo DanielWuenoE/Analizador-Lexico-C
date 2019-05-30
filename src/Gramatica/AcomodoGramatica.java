@@ -95,7 +95,7 @@ public class AcomodoGramatica {
         for (int i = 0; i < simbolosNoTerminales.length; i++) {
             if (simbolosNoTerminales[i] != null)
                 if (simbolosNoTerminales[i].equals(buscar)){
-                    System.out.println("encontrado no terminal "+i);
+//                    System.out.println("encontrado no terminal "+i);
                     return i;
                 }
         }
@@ -106,7 +106,7 @@ public class AcomodoGramatica {
         for (int i = 0; i < simbolosTerminales.length; i++) {
             if (simbolosTerminales[i] != null)
                 if (simbolosTerminales[i].equals(buscar)){
-                    System.out.println("encontrado terminal "+i);
+//                    System.out.println("encontrado terminal "+i);
                     return i;
                 }
         }

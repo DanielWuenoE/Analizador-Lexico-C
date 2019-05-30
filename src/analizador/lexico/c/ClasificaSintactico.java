@@ -6,7 +6,7 @@ public class ClasificaSintactico {
 
     Tipos tipo = new Tipos();
     ConversionCaracter conv = new ConversionCaracter();
-    //String archivo = "el perro ladra eS una  prueba   a ", token;
+//    String archivo = "el e perro $ la$dra eS una  prueba   a ", token;
     String archivo = "", token;
     LeerArchivo leer = new LeerArchivo();
     int actual = 0;
@@ -18,7 +18,7 @@ public class ClasificaSintactico {
 
     public String pedirToken() {
         q0(archivo);
-        System.out.println(";" + token + ";");
+        System.out.print( token + " ");
         return token;
     }
 
@@ -35,7 +35,8 @@ public class ClasificaSintactico {
                 actual++;
                 q1Identificador(archivo);
             } else {
-                q2ErrorLexico(archivo, actual);
+                actual++;
+                q2ErrorLexico(archivo, 0);
             }
         }
     }

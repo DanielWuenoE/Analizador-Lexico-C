@@ -1,1 +1,5 @@
-el perro azul ladra $
+el perro ladra
+el perro maulla
+el coche vive ladra
+la brujita corre
+gato el $

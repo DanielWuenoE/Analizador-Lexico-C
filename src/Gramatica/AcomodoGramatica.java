@@ -93,9 +93,10 @@ public class AcomodoGramatica {
     
     public int indiceNoTerminal(String buscar) {
         for (int i = 0; i < simbolosNoTerminales.length; i++) {
-            if (simbolosNoTerminales[i].equals(buscar))
+            if (simbolosNoTerminales[i].equals(buscar)){
+                System.out.println("encontrado");
                 return i;
-            else return 0;
+            }
         }
         return 0;
     }
@@ -104,14 +105,13 @@ public class AcomodoGramatica {
         for (int i = 0; i < simbolosTerminales.length; i++) {
             if (simbolosTerminales[i].equals(buscar))
                 return i;
-            else return 0;
         }
         return 0;
     }
     
     public String[] produccionDerecha(int produccion) {
         if (todasLasProducciones[produccion - 1][1] != null) {
-            return nes.noEsEsplit(todasLasProducciones[produccion][1], " ");
+            return nes.noEsEsplit(todasLasProducciones[produccion - 1][1], " ");
         }
         return null;
     }

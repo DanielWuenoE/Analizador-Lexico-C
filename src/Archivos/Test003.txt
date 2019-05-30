@@ -1,5 +1,5 @@
 el perro ladra
-el perro maulla
-el coche vive ladra
-la brujita corre
+   El perro   maulla    
+el coche vive
+la brujita corre $
 gato el $

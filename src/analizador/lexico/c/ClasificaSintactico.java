@@ -18,12 +18,10 @@ public class ClasificaSintactico {
 
     public String pedirToken() {
         q0(archivo);
-        System.out.print( token + " ");
         return token;
     }
 
     public void q0(String archivo) {
-//        System.out.println(actual);
         if (actual < archivo.length()) {
             conv.convertirCaracter(archivo.charAt(actual));
             if (tipo.esEspacio(conv.getAscii())) {
@@ -43,12 +41,9 @@ public class ClasificaSintactico {
 
     public void q1Identificador(String archivo) {
         int movs = 1;
-        //System.out.println("Actual: " + actual);
         for (int i = actual; i < archivo.length(); i++) {
-            //System.out.println("Caracter actual: " + archivo.charAt(i));
             conv.convertirCaracter(archivo.charAt(i));
             if (tipo.esEspacio(conv.getAscii())) {
-//                System.out.println("identificador");
                 token = crearCadena(actual - 1, actual + movs, archivo);
                 actual = actual + movs;
                 break;
@@ -65,7 +60,6 @@ public class ClasificaSintactico {
         for (int i = actual + movs; i < archivo.length(); i++) {
             conv.convertirCaracter(archivo.charAt(i));
             if (tipo.esEspacio(conv.getAscii()) == true) {
-//                System.out.println("error");
                 movs++;
                 token = crearCadena(actual - 1, actual + movs, archivo);
                 actual = actual + movs;

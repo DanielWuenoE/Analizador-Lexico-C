@@ -50,8 +50,7 @@ public class MatrizPredictiva {
                 if(obtenProduccionMatrizP(x, a) != 0) {
                     //remplazar x con la producción(obtenProduccionMatrizP(x, a));
                     pila.pop(); //y un siclo push();
-                    cicloPush(obtenProduccionMatrizP(x, a));
-                    //asignar a x el tope de la pila
+                    cicloPush(obtenProduccionMatrizP(x, a)); // derecha a izquierda
                 } else {
                     errorSintactico(x);
                 }

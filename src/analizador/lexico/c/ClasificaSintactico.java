@@ -97,5 +97,6 @@ public class ClasificaSintactico {
         obj.pedirToken();
         obj.pedirToken();
         obj.pedirToken();
+        obj.pedirToken();
     }
 }

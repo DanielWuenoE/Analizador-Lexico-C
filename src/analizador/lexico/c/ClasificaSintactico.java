@@ -15,7 +15,7 @@ public class ClasificaSintactico {
 
     public String pedirToken() {
         q0(archivo);
-        System.out.println(token);
+        System.out.println(";" + token + ";");
         return token;
     }
 
@@ -95,8 +95,6 @@ public class ClasificaSintactico {
         //        obj.im(archivo);
         obj.pedirToken();
         obj.pedirToken();
-        obj.pedirToken();
-
         obj.pedirToken();
         obj.pedirToken();
     }

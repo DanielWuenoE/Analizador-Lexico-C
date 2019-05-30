@@ -78,6 +78,7 @@ public class MatrizPredictiva {
                     pila.pop();
                     System.out.println("Imprimiendo");
                     pila.imprime();
+                    x = pila.peak();
                     //a = lectura(); //siguiente lexema ? : fin, en espera del analizador lexico ?
                     a = lexico.pedirToken();
                 } else {

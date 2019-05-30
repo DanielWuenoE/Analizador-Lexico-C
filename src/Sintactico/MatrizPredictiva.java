@@ -54,7 +54,7 @@ public class MatrizPredictiva {
         String x = pila.peak(); // tope de la pila
         String a = lexico.pedirToken(); // pedir la primer palabra
         while(pila.isEmpty()) {
-            if (noEsTerminal(x)) {
+            if (noEsTerminal(x) || x.equals("ε")) {
                 System.out.println(x);
                 System.out.println(a);
                 if(obtenProduccionMatrizP(x, a) != 0) {

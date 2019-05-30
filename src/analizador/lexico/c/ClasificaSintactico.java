@@ -14,7 +14,6 @@ public class ClasificaSintactico {
     int actual = 0;
 
     public String pedirToken() {
-
         q0(archivo);
         System.out.println(token);
         return token;
@@ -25,7 +24,7 @@ public class ClasificaSintactico {
         if (actual < archivo.length()) {
             conv.convertirCaracter(archivo.charAt(actual));
             if (tipo.esEspacio(conv.getAscii())) {
-                if (actual++ < archivo.length()) {
+                if (actual+1 < archivo.length()) {
                     actual++;
                     q0(archivo);
                 }

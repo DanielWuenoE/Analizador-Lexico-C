@@ -10,7 +10,7 @@ public class ClasificaSintactico {
     ConversionCaracter conv = new ConversionCaracter();
     Listas list = new Listas();
     PalabraReservada pr = new PalabraReservada();
-    String archivo = "esta eS  una prueba a ", token;
+    String archivo = "esta eS    una prueba a ", token;
     int actual = 0;
 
     public String pedirToken() {

@@ -51,6 +51,7 @@ public class MatrizPredictiva {
                     //remplazar x con la producción(obtenProduccionMatrizP(x, a));
                     pila.pop(); //y un siclo push();
                     cicloPush(obtenProduccionMatrizP(x, a));
+                    //asignar a x el tope de la pila
                 } else {
                     errorSintactico(x);
                 }
@@ -66,7 +67,7 @@ public class MatrizPredictiva {
     }
     
     private void cicloPush(int produccion) {
-        String[] deriva = gramatica.produccionDerecha(0);    // la produccion a ingresar
+        String[] deriva = gramatica.produccionDerecha(produccion);    // la produccion a ingresar
         for (String derivacion : deriva) {
             pila.push(derivacion);
         }

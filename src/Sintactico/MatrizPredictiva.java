@@ -26,9 +26,9 @@ public class MatrizPredictiva {
         return matrizPredictiva[x][y];
     }
     
-    public int obtenProduccionMatrizP(String x, String y) {
-        int posX = gramatica.indiceNoTerminal(x);
-        int posY = gramatica.indiceTerminal(y);
+    public int obtenProduccionMatrizP(String x, String a) {
+        int posX = gramatica.indiceNoTerminal(x); // 0
+        int posY = gramatica.indiceTerminal(a);  // 0
         return matriz(posX, posY);
     }
     
@@ -41,9 +41,10 @@ public class MatrizPredictiva {
         return false;
     }
     
-    public void LlDiver(String a) { //a sera el lexema enviado del analizador lexico
+    public void LlDiver() { //a sera el lexema enviado del analizador lexico
         pila.push(gramatica.simboloInicial());
         String x = pila.peak(); // tope de la pila
+        String a = " "; // pedir la primer palabra
         while(!pila.isEmpty()) {
             if (noEsTerminal(x)) {
                 if(obtenProduccionMatrizP(x, a) != 0) {

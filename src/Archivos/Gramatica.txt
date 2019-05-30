@@ -3,7 +3,7 @@ frase      > sujeto predicado
 sujeto     > articulo sustantivo sujetolist
 predicado  > verbo sujetolist
 sujetolist > adjetivo sujetolist
-sujetolist > vacio
+sujetolist > ε
 articulo   > el
 articulo   > la
 articulo   > los

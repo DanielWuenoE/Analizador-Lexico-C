@@ -1,12 +1,20 @@
 package analizador.lexico.c;
 
+import Lectura.LeerArchivo;
+
 public class ClasificaSintactico {
 
-    private String caso;
     Tipos tipo = new Tipos();
     ConversionCaracter conv = new ConversionCaracter();
-    String archivo = "el perro esta eS una  prueba   a ", token;
+    //String archivo = "el perro ladra eS una  prueba   a ", token;
+    String archivo = "", token;
+    LeerArchivo leer = new LeerArchivo();
     int actual = 0;
+
+    public ClasificaSintactico() {
+        leer.leerArchivo();
+        archivo = leer.datos();
+    }
 
     public String pedirToken() {
         q0(archivo);

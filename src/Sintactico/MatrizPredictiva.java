@@ -13,8 +13,8 @@ public class MatrizPredictiva {
     MatrizPredictiva() {
         pila = new Pila();
         gramatica = new AcomodoGramatica();
-        lexico = new ClasificaSintactico();
         gramatica.ini();
+        lexico = new ClasificaSintactico();
     }
     
     public int matriz(int x, int y) {

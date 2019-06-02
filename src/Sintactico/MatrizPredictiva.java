@@ -83,7 +83,7 @@ public class MatrizPredictiva {
         if (!a.equals("$")) {
             System.out.println("");
             LlDiver();
-        }else
+        } else
             System.out.println("Análisis terminado");
         }
     }

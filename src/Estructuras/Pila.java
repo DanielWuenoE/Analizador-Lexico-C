@@ -64,14 +64,14 @@ public class Pila {
 }
 
 class test {
-    public static void main(String[] args) {
-        Pila p = new Pila();
-        p.push("1");
-        p.push("2");
-        p.push("3");
-        p.push("4");
-        System.out.println(":" + p.peak());
-        p.pop();
-        p.imprime();
-    }
+//    public static void main(String[] args) {
+//        Pila p = new Pila();
+//        p.push("1");
+//        p.push("2");
+//        p.push("3");
+//        p.push("4");
+//        System.out.println(":" + p.peak());
+//        p.pop();
+//        p.imprime();
+//    }
 }
